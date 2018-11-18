@@ -1,19 +1,19 @@
 # Ecommerce Application
 
-# Requirements
-Features
+## Requirements
+  - Features
 
-# Technical Specifications
+## Technical Specifications
 
-# System Design
+## System Design
 
-## Ecommerce Database Design
+### Ecommerce Database Design
+   - DB Name: ecommerce
 
-DB Name: ecommerce
+#### Tables/Entities
 
-## Tables/Entities
-
-### users
+##### users
+```
 create table users (
 	id int(11) not null primary key auto_increment,
 	username varchar(100) not null,
@@ -23,25 +23,30 @@ create table users (
 	status smallint(4)  not null default '1' comment "0: Inactive, 1: Active",
 	unique key (username)
 );
+```
+```
 insert into users (
 	username, password, first_name, last_name)
 	values('admin', md5('admin'), "Ecommerce", "Admin");
-
+```
 Another way of inserting
-
+```
 insert into users set
 username = 'admin',
 password = md5('admin'),
 first_name = "Ecommerce",
 last_name = "Admin"
-
+```
+```
 insert into users set
 username = 'manager',
 password = md5('admin'),
 first_name = "Ecommerce",
 last_name = "Manager";
+```
 
-### categories
+##### categories
+```
 create table categories (
 	id int(11) not null primary key auto_increment,
 	name varchar(255) not null,
@@ -49,8 +54,10 @@ create table categories (
 	description text null,
 	status smallint(4) not null default '1' comment "0: Inactive, 1: Active"
 );
+```
 
-### products
+##### products
+```
 create table products (
 	id int(11) not null primary key auto_increment,
 	category_id int(11) not null,
@@ -58,18 +65,23 @@ create table products (
 	description text null,
 	status smallint(4) not null default '1' comment "0: Inactive, 1: Active"
 );
+```
 
-### product_images
+##### product_images
+```
 create table product_images (
 	id int(11) not null primary key auto_increment,
 	product_id int(11) not null,
 	image_name varchar(255) not null
 );
-
+```
+```
 alter table products
 	add column price double(10,2) not null default '0.00' after name;
+```
 
-### customers
+##### customers
+```
 create table customers (
 	id int(11) not null primary key auto_increment,
 	first_name varchar(100) not null,
@@ -81,6 +93,8 @@ create table customers (
 	status smallint(4) not null default '1' comment "0: Inactive, 1: Active",
 	unique key (email)
 );
+```
+```
 insert into customers set
 first_name = 'Madhav',
 last_name = 'Paudel',
@@ -88,8 +102,10 @@ email = 'info@poudelmadhav.com.np',
 password = md5('MADHAV'),
 billing_address = 'Naya Thimi, Bhaktapur',
 shipping_address = 'Mallarani Gaunpalika-1, Pyuthan';
+```
 
-### cart
+##### cart
+```
 create table cart (
 	id int(11) not null primary key auto_increment,
 	session_id int(11) not null,
@@ -97,8 +113,10 @@ create table cart (
 	quantity int(11) not null,
 	price double(10,2) not null default '0.00'
 );
+```
 
-### orders
+##### orders
+```
 create table orders (
 	id int(11) not null primary key auto_increment,
 	customer_id int(11) not null,
@@ -106,8 +124,10 @@ create table orders (
 	order_status varchar(25) not null comment "pending, processing, invoiced, complete, etc.",
 	order_date date not null
 );
+```
 
-### ordered_items
+##### ordered_items
+```
 create table ordered_items (
 	id int(11) not null primary key auto_increment,
 	order_id int(11) not null,
@@ -115,7 +135,9 @@ create table ordered_items (
 	quantity int(11) not null,
 	price double(10,2) not null default '0.00'
 );
-
+```
+Adding Foreign Key
+```
 alter table products add foreign key(category_id) references categories(id);
 alter table product_images add foreign key(product_id) references products(id);
 
@@ -124,3 +146,4 @@ alter table cart add foreign key(product_id) references products(id);
 alter table orders add foreign key(customer_id) references customers(id);
 alter table ordered_items add foreign key(order_id) references orders(id);
 alter table ordered_items add foreign key(product_id) references products(id);
+```
