@@ -32,8 +32,8 @@ try {
 						?>
 					</div>
 				<?php } ?>
-				<h3>List of Categories</h3>
-				<a href="addform.php" class="btn btn-info float-right mb-2" role="button">Add new</a>
+				<h3 class="d-inline">List of Categories</h3>
+				<a href="addform.php" class="btn btn-sm btn-info float-right mb-2 d-inline" role="button">Add new</a>
 				<table class="table table-striped table-bordered">
 					<tr>
 						<th>ID</th>
