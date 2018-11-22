@@ -1,9 +1,11 @@
 <?php
 session_start();
 
-function checkLogin() {
-	if(!isset($_SESSION['is_user_login'])) {
-		header("Location: login.php?message=You are not logged in yet!");
-		die;
-	}
-}
+define('_DB_HOST', 'localhost');
+define('_DB_NAME', 'ecommerce');
+define('_DB_USER', 'madhav');
+define('_DB_PASSWORD', 'password');
+
+
+include 'libraries/db.php';
+include 'libraries/functions.php';

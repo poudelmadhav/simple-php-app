@@ -4,7 +4,12 @@ include "../config.php";
 $username = $_POST['username'];
 $password = $_POST['pwd'];
 
-if ($username == 'admin' && $password == 'admin') {
+$sql = "SELECT * FROM users where username='$username' and password=md5('$password')";
+$result = $db->query($sql);
+$user = $result->fetch();
+
+
+if (!empty($user)) {
 	// echo "Login success!";
 	$_SESSION['is_user_login'] = true;
 	header("Location: index.php?message=You are successfully logged in!");
