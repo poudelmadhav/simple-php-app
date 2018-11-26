@@ -11,7 +11,7 @@
 <!--Custom JavaScript -->
 <script src="../../dist/js/custom.min.js"></script>
 <!--This page JavaScript -->
-<script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+<!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
 <!-- Charts js Files -->
 <script src="../../assets/libs/flot/excanvas.js"></script>
 <script src="../../assets/libs/flot/jquery.flot.js"></script>

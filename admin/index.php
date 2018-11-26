@@ -93,7 +93,7 @@
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
                                 <h6 class="text-white">Users</h6>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
+                                <h1 class="font-light text-white"><i class="fas fa-boxes"></i></h1>
                                 <h6 class="text-white">Categories</h6>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
+                                <h1 class="font-light text-white"><i class="fas fa-shopping-bag"></i></h1>
                                 <h6 class="text-white">Products</h6>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-arrow-all"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-clipboard-text"></i></h1>
                                 <h6 class="text-white">Orders</h6>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-cart-outline"></i></h1>
                                 <h6 class="text-white">Carts</h6>
                             </div>
                         </div>
@@ -139,7 +139,7 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-relative-scale"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-circle"></i></h1>
                                 <h6 class="text-white">Customers</h6>
                             </div>
                         </div>
