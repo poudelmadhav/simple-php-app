@@ -47,10 +47,11 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Create New Usere</h4>
+                        <h4 class="page-title">Create New User</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="./">Admin</a></li>
                                     <li class="breadcrumb-item"><a href="users.php">Users</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Create</li>
                                 </ol>
