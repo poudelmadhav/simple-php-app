@@ -110,14 +110,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3">Status</label>
-                                        <div class="col-md-9">
+                                        <label class="col-sm-3">Status</label>
+                                        <div class="col-sm-9">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required>
+                                                <input type="radio" class="custom-control-input" id="customControlValidation1" name="status" value="1" checked="checked" required>
                                                 <label class="custom-control-label" for="customControlValidation1">Active</label>
                                             </div>
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="status" value="0" required>
                                                 <label class="custom-control-label" for="customControlValidation2">Inactive</label>
                                             </div>
                                         </div>
