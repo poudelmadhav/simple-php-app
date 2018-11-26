@@ -24,3 +24,15 @@
 <script src="../../assets/extra-libs/DataTables/datatables.min.js"></script>
 <script src="../../assets/extra-libs/multicheck/jquery.multicheck.js"></script>
 <script src="../../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+ 
+<!--Wave Effects -->
+<script src="../../assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+<script src="../../dist/js/pages/mask/mask.init.js"></script>
+<script src="../../assets/libs/select2/dist/js/select2.full.min.js"></script>
+<script src="../../assets/libs/select2/dist/js/select2.min.js"></script>
+<script src="../../assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
+<script src="../../assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
+<script src="../../assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
+<script src="../../assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
+<script src="../../assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="../../assets/libs/quill/dist/quill.min.js"></script>

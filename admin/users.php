@@ -54,8 +54,8 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Users</li>
+                                    <li class="breadcrumb-item"><a href="#">Users</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">View</li>
                                 </ol>
                             </nav>
                         </div>
@@ -65,6 +65,16 @@
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
+
+            <!-- Notice -->
+            <?php if(isset($_GET['message'])) { ?>
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                        echo $_GET['message'];
+                    ?>
+                </div>
+            <?php } ?>
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -78,7 +88,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Users Datatable</h5>
                                 <div class="table-responsive">
-                                    <a href="" role="button" class="btn btn-info float-right">Add New</a>
+                                    <a href="userform.php" role="button" class="btn btn-info float-right">Add New</a>
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
