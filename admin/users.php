@@ -88,14 +88,14 @@
                             <div class="card-body">
                                 <h5 class="card-title">Users Datatable</h5>
                                 <div class="table-responsive">
-                                    <a href="userform.php" role="button" class="btn btn-info float-right">Add New</a>
+                                    <a href="userform.php" role="button" class="btn btn-info float-right" style="margin: 10px 10px;">Add New</a>
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
                                                 <th>Username</th>
-                                                <th>Status</th>>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
