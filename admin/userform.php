@@ -82,31 +82,31 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <form class="form-horizontal" method="post" action="">
+                            <form class="form-horizontal" method="post" action="createuserprocess.php">
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-3 control-label col-form-label">Username</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="username" placeholder="Username Here">
+                                            <input type="text" name="username" class="form-control" id="username" placeholder="Username Here" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="fname" class="col-sm-3 control-label col-form-label">First Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="fname" placeholder="First Name Here">
+                                            <input type="text" name="first_name" class="form-control" id="fname" placeholder="First Name Here" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 control-label col-form-label">Last Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="lname" placeholder="Last Name Here">
+                                            <input type="text" name="last_name" class="form-control" id="lname" placeholder="Last Name Here" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="password" class="col-sm-3 control-label col-form-label">Password</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="password" placeholder="Password Here">
+                                            <input type="password" name="pwd" class="form-control" id="password" placeholder="Password Here" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button type="button" class="btn btn-primary">Create</button>
+                                        <button type="submit" class="btn btn-primary">Create</button>
                                     </div>
                                 </div>
                             </form>
