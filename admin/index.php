@@ -1,3 +1,7 @@
+<?php
+    include "../config.php";
+    checkLogin();
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -731,9 +735,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            <?php include 'partials/footer.php'; ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
