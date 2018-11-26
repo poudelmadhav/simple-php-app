@@ -47,7 +47,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Basic</h4>
+                        <h4 class="page-title">Create New Usere</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -84,7 +84,7 @@
                         <div class="card">
                             <form class="form-horizontal" method="post" action="">
                                 <div class="card-body">
-                                    <h4 class="card-title">Create New User</h4>
+                                    <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-3 control-label col-form-label">Username</label>
                                         <div class="col-sm-9">
