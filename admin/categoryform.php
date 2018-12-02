@@ -1,6 +1,18 @@
 <?php
     include "../config.php";
     checkLogin();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $status = $_POST['status'];
+
+        $sql = "INSERT INTO categories (name, description, status) values('$name', '$description', '$status')";
+        $db->query($sql);
+
+        header("Location: categories.php?message=Category successfully inserted!");
+        die;
+    }
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -83,7 +95,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <form class="form-horizontal" method="post" action="createcategoryprocess.php">
+                            <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">
