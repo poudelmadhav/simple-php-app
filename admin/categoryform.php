@@ -87,27 +87,15 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">
-                                        <label for="username" class="col-sm-3 control-label col-form-label">Username</label>
+                                        <label for="name" class="col-sm-3 control-label col-form-label">Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="username" class="form-control" id="username" placeholder="Username Here" required>
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Category Name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 control-label col-form-label">First Name</label>
+                                        <label for="description" class="col-sm-3 control-label col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="first_name" class="form-control" id="fname" placeholder="First Name Here" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 control-label col-form-label">Last Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="last_name" class="form-control" id="lname" placeholder="Last Name Here" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="password" class="col-sm-3 control-label col-form-label">Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" name="password" class="form-control" id="password" placeholder="Password Here" required>
+                                            <textarea class="form-control" name="description" id="description" placeholder="Category Description..."></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
