@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <form class="form-horizontal" method="post" action="">
+                            <form class="form-horizontal" method="post" action="createcategoryprocess.php">
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">

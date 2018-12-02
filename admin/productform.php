@@ -2,6 +2,10 @@
     include "../config.php";
     checkLogin();
     $categories = $db->query("SELECT * FROM categories");
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo "Form Posted";
+    }
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
