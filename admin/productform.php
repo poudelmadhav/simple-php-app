@@ -4,7 +4,17 @@
     $categories = $db->query("SELECT * FROM categories");
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo "Form Posted";
+        $category_id = $_POST['category_id'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+        $status = $_POST['status'];
+
+        $sql = "INSERT INTO products (category_id, name, price, description, status) values('$category_id', '$name', '$price', '$description', '$status')";
+        $db->query($sql);
+
+        header("Location: products.php?message=Product successfully inserted!");
+        die;
     }
 ?>
 <!DOCTYPE html>
@@ -88,7 +98,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="">
+                            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">
