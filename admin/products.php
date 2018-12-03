@@ -96,9 +96,11 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Category</th>
+                                                <th>Image</th>
                                                 <th>Description</th>
                                                 <th>Price</th>
                                                 <th>Status</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -106,9 +108,18 @@
                                                 <tr>
                                                     <td><?php echo $product['name'];?></td>
                                                     <td><?php echo $product['category_name'];?></td>
+                                                    <td width="200">
+                                                    <?php if (!empty($product['product_image'])) { ?>
+                                                        <img src="../uploads/products/<?php echo $product['product_image']; ?>" width="100%" class="mt-2">
+                                                    <?php } else { echo "No Image!"; }?>
+                                                    </td>
                                                     <td><?php echo $product['description'];?></td>
                                                     <td><?php echo $product['price'];?></td>
                                                     <td><?php echo $product['status'] == 1 ? 'Active' : 'Inactive';?></td>
+                                                    <td>
+                                                        <a href="product_edit.php?id=<?php echo $product['id']?>">Edit</a>
+                                                        <a href="product_delete.php?id=<?php echo $product['id']?>">Delete</a>
+                                                    </td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>

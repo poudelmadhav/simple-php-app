@@ -3,8 +3,16 @@
     checkLogin();
     $categories = $db->query("SELECT * FROM categories");
 
+    $productId = (int) $_GET['id'];
+    $result = $db->query("SELECT * FROM products WHERE id=$productId");
+    $product = $result->fetch(PDO::FETCH_ASSOC);
+    // echo "<pre>";
+    // print_r($product);
+    // die;
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // collecting posted values into varaibles
+        $id = (int) $_POST['id'];
         $category_id = $_POST['category_id'];
         $name = $_POST['name'];
         $price = $_POST['price'];
@@ -12,27 +20,32 @@
         $status = $_POST['status'];
 
         // preparing insert sql (DML)
-        $sql = "INSERT INTO products (category_id, name, price, description, status) values($category_id, '$name', $price, '$description', $status)";
+        $sql = "UPDATE products
+                SET category_id=$category_id,
+                name='$name',
+                price=$price,
+                description='$description',
+                status=$status
+                WHERE id=$id";
 
         // Run the sql
         $db->query($sql);
 
-        // Uploading image
-        $newProductId = $db->lastInsertId();
-        // echo "<pre>";
-        // print_r($_POST);
-        // print_r($_FILES);
-        // die;
-
+        // Updating image
         $target = "../uploads/products";
         if (is_uploaded_file($_FILES['product_image']['tmp_name'])) {
-            $filename = $newProductId.'-'.$_FILES['product_image']['name'];
+            $oldFileName = $_POST['old_product_image'];
+            if (file_exists("../uploads/products/$oldFileName")) {
+                unlink("../uploads/products/$oldFileName");
+            }
+
+            $filename = $id.'-'.$_FILES['product_image']['name'];
             move_uploaded_file($_FILES['product_image']['tmp_name'], $target.'/'.$filename);
-            $sqlUpdate = "UPDATE products set product_image='$filename' where id=$newProductId";
+            $sqlUpdate = "UPDATE products set product_image='$filename' where id=$id";
             $db->query($sqlUpdate);
         }
 
-        header("Location: products.php?message=Product successfully inserted!");
+        header("Location: products.php?message=Product successfully updated!");
         die;
     }
 ?>
@@ -118,6 +131,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                <input type="hidden" name="id" value="<?php echo $productId; ?>">
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">
@@ -126,7 +140,7 @@
                                             <select  name="category_id" class="form-control">
                                                 <option value="" selected="">Select Category</option>
                                                 <?php foreach ($categories as $category) { ?>
-                                                    <option value="<?php echo $category['id'] ?>"><?php echo $category['name']; ?></option>
+                                                    <option value="<?php echo $category['id']; ?>" <?php echo $product['category_id'] == $category['id'] ? 'selected' : ''; ?>><?php echo $category['name']; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -134,13 +148,13 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-3 control-label col-form-label">Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="name" class="form-control" id="name" placeholder="Product Name" required>
+                                            <input type="text" name="name" value="<?php echo $product['name']; ?>" class="form-control" id="name" placeholder="Product Name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="price" class="col-sm-3 control-label col-form-label">Price</label>
                                         <div class="col-sm-9">
-                                            <input type="number" name="price" class="form-control" id="price" placeholder="Product Price" required>
+                                            <input type="number" name="price" value="<?php echo $product['price']; ?>" class="form-control" id="price" placeholder="Product Price" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -150,23 +164,27 @@
                                                 <input type="file" name="product_image" id="product_image" class="custom-file-input" id="validatedCustomFile" required>
                                                 <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
                                             </div>
+                                            <?php if (!empty($product['product_image'])) { ?>
+                                                <input type="hidden" name="old_product_image" value="<?php echo $product['product_image']; ?>">
+                                                <img src="../uploads/products/<?php echo $product['product_image']; ?>" width="100%" class="mt-2">
+                                            <?php } ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="description" class="col-sm-3 control-label col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" name="description" id="description" placeholder="Product Description..."></textarea>
+                                            <textarea class="form-control" name="description" id="description" placeholder="Product Description..."><?php echo $product['description']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3">Status</label>
                                         <div class="col-sm-9">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" id="customControlValidation1" name="status" value="1" checked="checked" required>
+                                                <input type="radio" class="custom-control-input" id="customControlValidation1" name="status" value="1" <?php echo $product['status'] == 1 ? 'checked="checked"': ''; ?> required>
                                                 <label class="custom-control-label" for="customControlValidation1">Active</label>
                                             </div>
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="status" value="0" required>
+                                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="status" value="0" <?php echo $product['status'] == 0 ? 'checked="checked"': ''; ?> required>
                                                 <label class="custom-control-label" for="customControlValidation2">Inactive</label>
                                             </div>
                                         </div>
@@ -174,7 +192,7 @@
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-primary">Create</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </form>
