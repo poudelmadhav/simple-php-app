@@ -146,10 +146,11 @@
                                     <div class="form-group row">
                                         <label class="col-md-3" for="product_image">Product Image</label>
                                         <div class="col-md-9">
-                                            <div class="custom-file">
+                                            <div class="custom-file" id="pictureInput">
                                                 <input type="file" name="product_image" id="product_image" class="custom-file-input" id="validatedCustomFile" required>
                                                 <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
                                             </div>
+                                            <div id="target-photo" class="mt-2"></div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -202,6 +203,23 @@
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     <?php include 'partials/scripts.php'; ?>
+    <!-- This is needed for image preview -->
+    <script type="text/javascript">
+      $(function() {
+        $('#pictureInput').on('change', function(event) {
+          var files = event.target.files;
+          var image = files[0]
+          var reader = new FileReader();
+          reader.onload = function(file) {
+            var img = new Image();
+            img.src = file.target.result;
+            $('#target-photo').html(img);
+          }
+          reader.readAsDataURL(image);
+          console.log(files);
+        });
+      });
+    </script>
     <script>
         //***********************************//
         // For select 2
