@@ -1,38 +1,16 @@
 <?php
     include "../config.php";
     checkLogin();
-    $categories = $db->query("SELECT * FROM categories");
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // collecting posted values into varaibles
-        $category_id = $_POST['category_id'];
         $name = $_POST['name'];
-        $price = $_POST['price'];
         $description = $_POST['description'];
         $status = $_POST['status'];
 
-        // preparing insert sql (DML)
-        $sql = "INSERT INTO products (category_id, name, price, description, status) values($category_id, '$name', $price, '$description', $status)";
-
-        // Run the sql
+        $sql = "INSERT INTO categories (name, description, status) values('$name', '$description', '$status')";
         $db->query($sql);
 
-        // Uploading image
-        $newProductId = $db->lastInsertId();
-        // echo "<pre>";
-        // print_r($_POST);
-        // print_r($_FILES);
-        // die;
-
-        $target = "../uploads/products";
-        if (is_uploaded_file($_FILES['product_image']['tmp_name'])) {
-            $filename = $newProductId.'-'.$_FILES['product_image']['name'];
-            move_uploaded_file($_FILES['product_image']['tmp_name'], $target.'/'.$filename);
-            $sqlUpdate = "UPDATE products set product_image='$filename' where id=$newProductId";
-            $db->query($sqlUpdate);
-        }
-
-        header("Location: products.php?message=Product successfully inserted!");
+        header("Location: categories.php?message=Category successfully inserted!");
         die;
     }
 ?>
@@ -81,12 +59,12 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Create New Product</h4>
+                        <h4 class="page-title">Create New User</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="./">Admin</a></li>
-                                    <li class="breadcrumb-item"><a href="products.php">Products</a></li>
+                                    <li class="breadcrumb-item"><a href="categories.php">Categories</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Create</li>
                                 </ol>
                             </nav>
@@ -117,45 +95,19 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                            <form class="form-horizontal" method="post" action="">
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">
-                                        <label for="category" class="col-sm-3 control-label col-form-label">Select Category</label>
-                                        <div class="col-sm-9">
-                                            <select  name="category_id" class="form-control">
-                                                <option value="" selected="">Select Category</option>
-                                                <?php foreach ($categories as $category) { ?>
-                                                    <option value="<?php echo $category['id'] ?>"><?php echo $category['name']; ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label for="name" class="col-sm-3 control-label col-form-label">Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="name" class="form-control" id="name" placeholder="Product Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="price" class="col-sm-3 control-label col-form-label">Price</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" name="price" class="form-control" id="price" placeholder="Product Price" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3" for="product_image">Product Image</label>
-                                        <div class="col-md-9">
-                                            <div class="custom-file">
-                                                <input type="file" name="product_image" id="product_image" class="custom-file-input" id="validatedCustomFile" required>
-                                                <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
-                                            </div>
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Category Name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="description" class="col-sm-3 control-label col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" name="description" id="description" placeholder="Product Description..."></textarea>
+                                            <textarea class="form-control" name="description" id="description" placeholder="Category Description..."></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">

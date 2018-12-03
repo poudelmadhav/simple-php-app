@@ -1,6 +1,20 @@
 <?php
     include "../config.php";
     checkLogin();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $status = $_POST['status'];
+
+        $sql = "INSERT INTO users (username, password, first_name, last_name, status) values('$username', md5('$password'), '$first_name', '$last_name', '$status')";
+        $db->query($sql);
+
+        header("Location: users.php?message=User successfully inserted!");
+        die;
+    }
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -83,7 +97,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <form class="form-horizontal" method="post" action="createuserprocess.php">
+                            <form class="form-horizontal" method="post" action="">
                                 <div class="card-body">
                                     <h4 class="card-title">Fill the details:</h4>
                                     <div class="form-group row">

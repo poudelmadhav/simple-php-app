@@ -90,7 +90,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Products Datatable</h5>
                                 <div class="table-responsive">
-                                    <a href="productform.php" role="button" class="btn btn-info float-right" style="margin: 10px 10px;">Add New</a>
+                                    <a href="product_add.php" role="button" class="btn btn-info float-right" style="margin: 10px 10px;">Add New</a>
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>

@@ -88,7 +88,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Categories Datatable</h5>
                                 <div class="table-responsive">
-                                    <a href="categoryform.php" role="button" class="btn btn-info float-right" style="margin: 10px 10px;">Add New</a>
+                                    <a href="category_add.php" role="button" class="btn btn-info float-right" style="margin: 10px 10px;">Add New</a>
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
