@@ -118,7 +118,7 @@
                                                     <td><?php echo $product['status'] == 1 ? 'Active' : 'Inactive';?></td>
                                                     <td>
                                                         <a href="product_edit.php?id=<?php echo $product['id']?>">Edit</a>
-                                                        <a href="product_delete.php?id=<?php echo $product['id']?>">Delete</a>
+                                                        <a href="product_delete.php?id=<?php echo $product['id']?>" onclick="return  confirm('Are you sure to delete?');">Delete</a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
